@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BD_JDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CAT_BANCO">
+          <Key>
+            <PropertyRef Name="ID_BANCO" />
+          </Key>
+          <Property Name="ID_BANCO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BANCO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FECHA_CREACION" Type="datetime" Nullable="false" />
+          <Property Name="USUARIO_CREACION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FECHA_ACTUALIZACION" Type="datetime" />
+          <Property Name="USUARIO_ACTUALIZACION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CAT_JERARQUIA">
+          <Key>
+            <PropertyRef Name="ID_JERARQUIA" />
+          </Key>
+          <Property Name="ID_JERARQUIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JERARQUIA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VALOR" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_FOLIOS">
+          <Key>
+            <PropertyRef Name="ID_FOLIO" />
+          </Key>
+          <Property Name="ID_FOLIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FOLIO_SIAC" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA_CAPTURA" Type="datetime" />
+          <Property Name="ESTRATEGIA" Type="varchar(max)" />
+          <Property Name="PROMOTOR" Type="varchar(max)" />
+          <Property Name="ESTATUS_SIAC" Type="varchar(max)" />
+          <Property Name="TIPO_LINEA" Type="varchar(max)" />
+          <Property Name="LINEA_CONTRATADA" Type="varchar(max)" />
+          <Property Name="AREA" Type="varchar(max)" />
+          <Property Name="DIVICION" Type="varchar(max)" />
+          <Property Name="TIENDA" Type="varchar(max)" />
+          <Property Name="PAQUETE" Type="varchar(max)" />
+          <Property Name="OBSERVACIONES" Type="varchar(max)" />
+          <Property Name="RESPUESTA_TELMEX" Type="varchar(max)" />
+          <Property Name="MOTIVO_RECHAZO" Type="varchar(max)" />
+          <Property Name="TELEFONO_ASIGNADO" Type="varchar(max)" />
+          <Property Name="TELEFONO_PORTADO" Type="varchar(max)" />
+          <Property Name="OS_ALTA_LINEA_MULTIORDEN" Type="varchar(max)" />
+          <Property Name="FECHA_OS_ALTA_LINEA_MULTIORDEN" Type="varchar(max)" />
+          <Property Name="ORDEN_SERVICIO_TV" Type="varchar(max)" />
+          <Property Name="FECHA_OS_TV" Type="varchar(max)" />
+          <Property Name="CAMPANA" Type="varchar(max)" />
+          <Property Name="ESTATUS_ATENCION_MULTIORDEN" Type="varchar(max)" />
+          <Property Name="ESTATUS_PISA_MULTIORDEN" Type="varchar(max)" />
+          <Property Name="PISA_OS_FECHA_POSTEO_MULTIORDEN" Type="datetime" />
+          <Property Name="ESTATUS_PISA_TV" Type="varchar(max)" />
+          <Property Name="PISA_OS_FECHA_POSTEO_TV" Type="varchar(max)" />
+          <Property Name="FECHA_CAMBIO_ESTATUS_SIAC" Type="varchar(max)" />
+          <Property Name="CLAVE_EMPRESA" Type="varchar(max)" />
+          <Property Name="NOMBRE_EMPRESA" Type="varchar(max)" />
+          <Property Name="SERVICIO_FACTURACION_TERCEROS" Type="varchar(max)" />
+          <Property Name="ETAPA_PISA_MULTIORDEN" Type="varchar(max)" />
+          <Property Name="ETAPA_PISA_TV" Type="varchar(max)" />
+          <Property Name="ETIQUETA_TRAFICO_VOZ" Type="varchar(max)" />
+          <Property Name="TRAFICO_VOZ_ENTRANTE" Type="varchar(max)" />
+          <Property Name="TRAFICO_VOZ_SALIENTE" Type="varchar(max)" />
+          <Property Name="FECHA_TRAFICO_VOZ" Type="varchar(max)" />
+          <Property Name="TRAFICO_DATOS" Type="varchar(max)" />
+          <Property Name="FECHA_TRAFICO_DATOS" Type="varchar(max)" />
+          <Property Name="FECHA_FACTURCION" Type="varchar(max)" />
+          <Property Name="DESCRIPCION_VALIDA_ADEUDO" Type="varchar(max)" />
+          <Property Name="CORREO_ELECTRONICO" Type="varchar(max)" />
+          <Property Name="FECHA_NACIMIENTO" Type="varchar(max)" />
+          <Property Name="ID" Type="varchar(max)" />
+          <Property Name="FECHA_CREACION" Type="datetime" />
+          <Property Name="FECHA_CALCULO_COMISION" Type="datetime" />
+          <Property Name="ESTATUS_PAGADO" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_PERSONA">
+          <Key>
+            <PropertyRef Name="ID_PERSONA" />
+          </Key>
+          <Property Name="ID_PERSONA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_JEARQUIA" Type="int" Nullable="false" />
+          <Property Name="USUARIO" Type="varchar" MaxLength="15" />
+          <Property Name="CONTRASENA" Type="varchar" MaxLength="16" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+          <Property Name="APELLIDO_PATERNO" Type="varchar" MaxLength="100" />
+          <Property Name="APELLIDO_MATERNO" Type="varchar" MaxLength="100" />
+          <Property Name="FECHA_NACIMIENTO" Type="date" />
+          <Property Name="RFC" Type="varchar" MaxLength="50" />
+          <Property Name="ESTRATEGIA_LIDERI" Type="char" MaxLength="10" />
+          <Property Name="CVE_PROMOTOR" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BD_JDA.dbo.TR_PERSONA_BANCO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TR_PERSONA_BANCO">
+          <Key>
+            <PropertyRef Name="CUENTA" />
+          </Key>
+          <Property Name="ID_PERSONA" Type="int" />
+          <Property Name="ID_BANCO" Type="int" />
+          <Property Name="CUENTA" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TBL_PERSONA_CAT_JERARQUIA">
+          <End Role="CAT_JERARQUIA" Type="Self.CAT_JERARQUIA" Multiplicity="1" />
+          <End Role="TBL_PERSONA" Type="Self.TBL_PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_JERARQUIA">
+              <PropertyRef Name="ID_JERARQUIA" />
+            </Principal>
+            <Dependent Role="TBL_PERSONA">
+              <PropertyRef Name="ID_JEARQUIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TR_PERSONA_BANCO_CAT_BANCO">
+          <End Role="CAT_BANCO" Type="Self.CAT_BANCO" Multiplicity="0..1" />
+          <End Role="TR_PERSONA_BANCO" Type="Self.TR_PERSONA_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_BANCO">
+              <PropertyRef Name="ID_BANCO" />
+            </Principal>
+            <Dependent Role="TR_PERSONA_BANCO">
+              <PropertyRef Name="ID_BANCO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TR_PERSONA_BANCO_TBL_PERSONA">
+          <End Role="TBL_PERSONA" Type="Self.TBL_PERSONA" Multiplicity="0..1" />
+          <End Role="TR_PERSONA_BANCO" Type="Self.TR_PERSONA_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="TR_PERSONA_BANCO">
+              <PropertyRef Name="ID_PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_JDAModelStoreContainer">
+          <EntitySet Name="CAT_BANCO" EntityType="Self.CAT_BANCO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAT_JERARQUIA" EntityType="Self.CAT_JERARQUIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_FOLIOS" EntityType="Self.TBL_FOLIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PERSONA" EntityType="Self.TBL_PERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TR_PERSONA_BANCO" EntityType="Self.TR_PERSONA_BANCO" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TR_PERSONA_BANCO].[ID_PERSONA] AS [ID_PERSONA], 
+    [TR_PERSONA_BANCO].[ID_BANCO] AS [ID_BANCO], 
+    [TR_PERSONA_BANCO].[CUENTA] AS [CUENTA]
+    FROM [dbo].[TR_PERSONA_BANCO] AS [TR_PERSONA_BANCO]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_TBL_PERSONA_CAT_JERARQUIA" Association="Self.FK_TBL_PERSONA_CAT_JERARQUIA">
+            <End Role="CAT_JERARQUIA" EntitySet="CAT_JERARQUIA" />
+            <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TR_PERSONA_BANCO_CAT_BANCO" Association="Self.FK_TR_PERSONA_BANCO_CAT_BANCO">
+            <End Role="CAT_BANCO" EntitySet="CAT_BANCO" />
+            <End Role="TR_PERSONA_BANCO" EntitySet="TR_PERSONA_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TR_PERSONA_BANCO_TBL_PERSONA" Association="Self.FK_TR_PERSONA_BANCO_TBL_PERSONA">
+            <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+            <End Role="TR_PERSONA_BANCO" EntitySet="TR_PERSONA_BANCO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_JDAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_FOLIOS">
+          <Key>
+            <PropertyRef Name="ID_FOLIO" />
+          </Key>
+          <Property Name="ID_FOLIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FOLIO_SIAC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_CAPTURA" Type="DateTime" Precision="3" />
+          <Property Name="ESTRATEGIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PROMOTOR" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS_SIAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_LINEA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LINEA_CONTRATADA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AREA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DIVICION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TIENDA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PAQUETE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RESPUESTA_TELMEX" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MOTIVO_RECHAZO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO_ASIGNADO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO_PORTADO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OS_ALTA_LINEA_MULTIORDEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_OS_ALTA_LINEA_MULTIORDEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ORDEN_SERVICIO_TV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_OS_TV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CAMPANA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS_ATENCION_MULTIORDEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS_PISA_MULTIORDEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PISA_OS_FECHA_POSTEO_MULTIORDEN" Type="DateTime" Precision="3" />
+          <Property Name="ESTATUS_PISA_TV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PISA_OS_FECHA_POSTEO_TV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_CAMBIO_ESTATUS_SIAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_EMPRESA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_EMPRESA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SERVICIO_FACTURACION_TERCEROS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ETAPA_PISA_MULTIORDEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ETAPA_PISA_TV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ETIQUETA_TRAFICO_VOZ" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TRAFICO_VOZ_ENTRANTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TRAFICO_VOZ_SALIENTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_TRAFICO_VOZ" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TRAFICO_DATOS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_TRAFICO_DATOS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_FACTURCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION_VALIDA_ADEUDO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO_ELECTRONICO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_CREACION" Type="DateTime" Precision="3" />
+          <Property Name="FECHA_CALCULO_COMISION" Type="DateTime" Precision="3" />
+          <Property Name="ESTATUS_PAGADO" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="BD_JDAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_FOLIOS" EntityType="Self.TBL_FOLIOS" />
+          <EntitySet Name="CAT_BANCO" EntityType="BD_JDAModel.CAT_BANCO" />
+          <EntitySet Name="CAT_JERARQUIA" EntityType="BD_JDAModel.CAT_JERARQUIA" />
+          <EntitySet Name="TBL_PERSONA" EntityType="BD_JDAModel.TBL_PERSONA" />
+          <EntitySet Name="TR_PERSONA_BANCO" EntityType="BD_JDAModel.TR_PERSONA_BANCO" />
+          <AssociationSet Name="FK_TR_PERSONA_BANCO_CAT_BANCO" Association="BD_JDAModel.FK_TR_PERSONA_BANCO_CAT_BANCO">
+            <End Role="CAT_BANCO" EntitySet="CAT_BANCO" />
+            <End Role="TR_PERSONA_BANCO" EntitySet="TR_PERSONA_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_PERSONA_CAT_JERARQUIA" Association="BD_JDAModel.FK_TBL_PERSONA_CAT_JERARQUIA">
+            <End Role="CAT_JERARQUIA" EntitySet="CAT_JERARQUIA" />
+            <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TR_PERSONA_BANCO_TBL_PERSONA" Association="BD_JDAModel.FK_TR_PERSONA_BANCO_TBL_PERSONA">
+            <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+            <End Role="TR_PERSONA_BANCO" EntitySet="TR_PERSONA_BANCO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CAT_BANCO">
+          <Key>
+            <PropertyRef Name="ID_BANCO" />
+          </Key>
+          <Property Name="ID_BANCO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BANCO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USUARIO_CREACION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_ACTUALIZACION" Type="DateTime" Precision="3" />
+          <Property Name="USUARIO_ACTUALIZACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TR_PERSONA_BANCO" Relationship="BD_JDAModel.FK_TR_PERSONA_BANCO_CAT_BANCO" FromRole="CAT_BANCO" ToRole="TR_PERSONA_BANCO" />
+        </EntityType>
+        <EntityType Name="CAT_JERARQUIA">
+          <Key>
+            <PropertyRef Name="ID_JERARQUIA" />
+          </Key>
+          <Property Name="ID_JERARQUIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JERARQUIA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VALOR" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_PERSONA" Relationship="BD_JDAModel.FK_TBL_PERSONA_CAT_JERARQUIA" FromRole="CAT_JERARQUIA" ToRole="TBL_PERSONA" />
+        </EntityType>
+        <EntityType Name="TBL_PERSONA">
+          <Key>
+            <PropertyRef Name="ID_PERSONA" />
+          </Key>
+          <Property Name="ID_PERSONA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_JEARQUIA" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CONTRASENA" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO_PATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO_MATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Precision="0" />
+          <Property Name="RFC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTRATEGIA_LIDERI" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CVE_PROMOTOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CAT_JERARQUIA" Relationship="BD_JDAModel.FK_TBL_PERSONA_CAT_JERARQUIA" FromRole="TBL_PERSONA" ToRole="CAT_JERARQUIA" />
+          <NavigationProperty Name="TR_PERSONA_BANCO" Relationship="BD_JDAModel.FK_TR_PERSONA_BANCO_TBL_PERSONA" FromRole="TBL_PERSONA" ToRole="TR_PERSONA_BANCO" />
+        </EntityType>
+        <EntityType Name="TR_PERSONA_BANCO">
+          <Key>
+            <PropertyRef Name="CUENTA" />
+          </Key>
+          <Property Name="ID_PERSONA" Type="Int32" />
+          <Property Name="ID_BANCO" Type="Int32" />
+          <Property Name="CUENTA" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CAT_BANCO" Relationship="BD_JDAModel.FK_TR_PERSONA_BANCO_CAT_BANCO" FromRole="TR_PERSONA_BANCO" ToRole="CAT_BANCO" />
+          <NavigationProperty Name="TBL_PERSONA" Relationship="BD_JDAModel.FK_TR_PERSONA_BANCO_TBL_PERSONA" FromRole="TR_PERSONA_BANCO" ToRole="TBL_PERSONA" />
+        </EntityType>
+        <Association Name="FK_TR_PERSONA_BANCO_CAT_BANCO">
+          <End Type="BD_JDAModel.CAT_BANCO" Role="CAT_BANCO" Multiplicity="0..1" />
+          <End Type="BD_JDAModel.TR_PERSONA_BANCO" Role="TR_PERSONA_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_BANCO">
+              <PropertyRef Name="ID_BANCO" />
+            </Principal>
+            <Dependent Role="TR_PERSONA_BANCO">
+              <PropertyRef Name="ID_BANCO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_PERSONA_CAT_JERARQUIA">
+          <End Type="BD_JDAModel.CAT_JERARQUIA" Role="CAT_JERARQUIA" Multiplicity="1" />
+          <End Type="BD_JDAModel.TBL_PERSONA" Role="TBL_PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_JERARQUIA">
+              <PropertyRef Name="ID_JERARQUIA" />
+            </Principal>
+            <Dependent Role="TBL_PERSONA">
+              <PropertyRef Name="ID_JEARQUIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TR_PERSONA_BANCO_TBL_PERSONA">
+          <End Type="BD_JDAModel.TBL_PERSONA" Role="TBL_PERSONA" Multiplicity="0..1" />
+          <End Type="BD_JDAModel.TR_PERSONA_BANCO" Role="TR_PERSONA_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="TR_PERSONA_BANCO">
+              <PropertyRef Name="ID_PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_JDAModelStoreContainer" CdmEntityContainer="BD_JDAEntities">
+          <EntitySetMapping Name="TBL_FOLIOS">
+            <EntityTypeMapping TypeName="BD_JDAModel.TBL_FOLIOS">
+              <MappingFragment StoreEntitySet="TBL_FOLIOS">
+                <ScalarProperty Name="ID_FOLIO" ColumnName="ID_FOLIO" />
+                <ScalarProperty Name="FOLIO_SIAC" ColumnName="FOLIO_SIAC" />
+                <ScalarProperty Name="FECHA_CAPTURA" ColumnName="FECHA_CAPTURA" />
+                <ScalarProperty Name="ESTRATEGIA" ColumnName="ESTRATEGIA" />
+                <ScalarProperty Name="PROMOTOR" ColumnName="PROMOTOR" />
+                <ScalarProperty Name="ESTATUS_SIAC" ColumnName="ESTATUS_SIAC" />
+                <ScalarProperty Name="TIPO_LINEA" ColumnName="TIPO_LINEA" />
+                <ScalarProperty Name="LINEA_CONTRATADA" ColumnName="LINEA_CONTRATADA" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+                <ScalarProperty Name="DIVICION" ColumnName="DIVICION" />
+                <ScalarProperty Name="TIENDA" ColumnName="TIENDA" />
+                <ScalarProperty Name="PAQUETE" ColumnName="PAQUETE" />
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="RESPUESTA_TELMEX" ColumnName="RESPUESTA_TELMEX" />
+                <ScalarProperty Name="MOTIVO_RECHAZO" ColumnName="MOTIVO_RECHAZO" />
+                <ScalarProperty Name="TELEFONO_ASIGNADO" ColumnName="TELEFONO_ASIGNADO" />
+                <ScalarProperty Name="TELEFONO_PORTADO" ColumnName="TELEFONO_PORTADO" />
+                <ScalarProperty Name="OS_ALTA_LINEA_MULTIORDEN" ColumnName="OS_ALTA_LINEA_MULTIORDEN" />
+                <ScalarProperty Name="FECHA_OS_ALTA_LINEA_MULTIORDEN" ColumnName="FECHA_OS_ALTA_LINEA_MULTIORDEN" />
+                <ScalarProperty Name="ORDEN_SERVICIO_TV" ColumnName="ORDEN_SERVICIO_TV" />
+                <ScalarProperty Name="FECHA_OS_TV" ColumnName="FECHA_OS_TV" />
+                <ScalarProperty Name="CAMPANA" ColumnName="CAMPANA" />
+                <ScalarProperty Name="ESTATUS_ATENCION_MULTIORDEN" ColumnName="ESTATUS_ATENCION_MULTIORDEN" />
+                <ScalarProperty Name="ESTATUS_PISA_MULTIORDEN" ColumnName="ESTATUS_PISA_MULTIORDEN" />
+                <ScalarProperty Name="PISA_OS_FECHA_POSTEO_MULTIORDEN" ColumnName="PISA_OS_FECHA_POSTEO_MULTIORDEN" />
+                <ScalarProperty Name="ESTATUS_PISA_TV" ColumnName="ESTATUS_PISA_TV" />
+                <ScalarProperty Name="PISA_OS_FECHA_POSTEO_TV" ColumnName="PISA_OS_FECHA_POSTEO_TV" />
+                <ScalarProperty Name="FECHA_CAMBIO_ESTATUS_SIAC" ColumnName="FECHA_CAMBIO_ESTATUS_SIAC" />
+                <ScalarProperty Name="CLAVE_EMPRESA" ColumnName="CLAVE_EMPRESA" />
+                <ScalarProperty Name="NOMBRE_EMPRESA" ColumnName="NOMBRE_EMPRESA" />
+                <ScalarProperty Name="SERVICIO_FACTURACION_TERCEROS" ColumnName="SERVICIO_FACTURACION_TERCEROS" />
+                <ScalarProperty Name="ETAPA_PISA_MULTIORDEN" ColumnName="ETAPA_PISA_MULTIORDEN" />
+                <ScalarProperty Name="ETAPA_PISA_TV" ColumnName="ETAPA_PISA_TV" />
+                <ScalarProperty Name="ETIQUETA_TRAFICO_VOZ" ColumnName="ETIQUETA_TRAFICO_VOZ" />
+                <ScalarProperty Name="TRAFICO_VOZ_ENTRANTE" ColumnName="TRAFICO_VOZ_ENTRANTE" />
+                <ScalarProperty Name="TRAFICO_VOZ_SALIENTE" ColumnName="TRAFICO_VOZ_SALIENTE" />
+                <ScalarProperty Name="FECHA_TRAFICO_VOZ" ColumnName="FECHA_TRAFICO_VOZ" />
+                <ScalarProperty Name="TRAFICO_DATOS" ColumnName="TRAFICO_DATOS" />
+                <ScalarProperty Name="FECHA_TRAFICO_DATOS" ColumnName="FECHA_TRAFICO_DATOS" />
+                <ScalarProperty Name="FECHA_FACTURCION" ColumnName="FECHA_FACTURCION" />
+                <ScalarProperty Name="DESCRIPCION_VALIDA_ADEUDO" ColumnName="DESCRIPCION_VALIDA_ADEUDO" />
+                <ScalarProperty Name="CORREO_ELECTRONICO" ColumnName="CORREO_ELECTRONICO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+                <ScalarProperty Name="FECHA_CALCULO_COMISION" ColumnName="FECHA_CALCULO_COMISION" />
+                <ScalarProperty Name="ESTATUS_PAGADO" ColumnName="ESTATUS_PAGADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAT_BANCO">
+            <EntityTypeMapping TypeName="BD_JDAModel.CAT_BANCO">
+              <MappingFragment StoreEntitySet="CAT_BANCO">
+                <ScalarProperty Name="USUARIO_ACTUALIZACION" ColumnName="USUARIO_ACTUALIZACION" />
+                <ScalarProperty Name="FECHA_ACTUALIZACION" ColumnName="FECHA_ACTUALIZACION" />
+                <ScalarProperty Name="USUARIO_CREACION" ColumnName="USUARIO_CREACION" />
+                <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+                <ScalarProperty Name="BANCO" ColumnName="BANCO" />
+                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAT_JERARQUIA">
+            <EntityTypeMapping TypeName="BD_JDAModel.CAT_JERARQUIA">
+              <MappingFragment StoreEntitySet="CAT_JERARQUIA">
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+                <ScalarProperty Name="JERARQUIA" ColumnName="JERARQUIA" />
+                <ScalarProperty Name="ID_JERARQUIA" ColumnName="ID_JERARQUIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PERSONA">
+            <EntityTypeMapping TypeName="BD_JDAModel.TBL_PERSONA">
+              <MappingFragment StoreEntitySet="TBL_PERSONA">
+                <ScalarProperty Name="CVE_PROMOTOR" ColumnName="CVE_PROMOTOR" />
+                <ScalarProperty Name="ESTRATEGIA_LIDERI" ColumnName="ESTRATEGIA_LIDERI" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
+                <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="ID_JEARQUIA" ColumnName="ID_JEARQUIA" />
+                <ScalarProperty Name="ID_PERSONA" ColumnName="ID_PERSONA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TR_PERSONA_BANCO">
+            <EntityTypeMapping TypeName="BD_JDAModel.TR_PERSONA_BANCO">
+              <MappingFragment StoreEntitySet="TR_PERSONA_BANCO">
+                <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+                <ScalarProperty Name="ID_PERSONA" ColumnName="ID_PERSONA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
