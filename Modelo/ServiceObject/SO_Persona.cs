@@ -16,6 +16,7 @@ namespace Modelo.ServiceObject
         /// <returns>Retorna un true si existe un registro con el usuario y la contraseña enviadas a los parámetros, de lo contrario renorna un false.</returns>
         public bool Login(string usuario, string contrasena)
         {
+            //Ejemplo
             try
             {
                 //Inicializamos la conexión a la base de datos a través de EntityFramework.
