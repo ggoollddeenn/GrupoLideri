@@ -14,7 +14,7 @@ namespace Modelo.ServiceObject
         /// <param name="usuario">Cadena que representa el usuario que se requiere buscar.</param>
         /// <param name="contrasena">Cadena que representa la contraseña que se requiere buscar.</param>
         /// <returns>Retorna un true si existe un registro con el usuario y la contraseña enviadas a los parámetros, de lo contrario renorna un false.</returns>
-        public bool Login(string usuario, string contrasena)
+        public TBL_PERSONA Login(string usuario, string contrasena)
         {
             //Ejemplo
             try
@@ -23,18 +23,18 @@ namespace Modelo.ServiceObject
                 using (var Contexto = new BD_JDAEntities())
                 {
                     //Realizamos la consulta.
-                    int registros = (from p in Contexto.TBL_PERSONA
+                    var persona = (from p in Contexto.TBL_PERSONA
                                      where p.CONTRASENA == contrasena && p.USUARIO == usuario
-                                     select p).ToList().Count;
+                                     select p).ToList().FirstOrDefault();
 
-                    //Retornamos el valor resultante de la comparación.
-                    return registros > 0;
+                    //Retornamos el resultado de la consulta.
+                    return persona;
                 }
             }
             catch (Exception er)
             {
                 //Registrar error en base de datos.
-                return false;
+                return null;
             }
         }
     }
